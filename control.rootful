@@ -1,0 +1,10 @@
+Package: com.qcom-toolbox.no-sep-bootloop-rootful
+Name: No SEP Bootloop (Rootful)
+Version: 1.0
+Architecture: iphoneos-arm64
+Description: Removes the Face ID & Passcode / Touch ID & Passcode settings entry entirely and blocks any passcode/biometric enrollment screen, to avoid SEP/AP desync bootloops on jailbroken devices. Rootful build — for checkra1n, unc0ver, Taurine, Odyssey, Chimera, palera1n rootful, and other classic /Library/MobileSubstrate jailbreaks.
+Maintainer: qcom-toolbox
+Author: qcom-toolbox
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 12.0)
+Icon: https://raw.githubusercontent.com/qcom-toolbox/No-SEP-Bootloop/main/ICON.png

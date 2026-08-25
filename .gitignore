@@ -3,3 +3,5 @@ packages/
 *.dylib
 *.deb
 .DS_Store
+# generated per-build from control.rootful / control.rootless by build.sh
+/control
