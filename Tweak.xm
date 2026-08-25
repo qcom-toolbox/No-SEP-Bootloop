@@ -34,6 +34,9 @@ static void nosepLog(NSString *fmt, ...) {
 @interface PSUIPrefsListController : PSListController
 @end
 
+@interface PSUIPrefsRootController : PSUIPrefsListController
+@end
+
 // Matches on identifier / class-name / title substrings rather than one
 // exact private string, since Apple's naming can shift between iOS 15.x
 // point releases and can't be verified without the live binary.
@@ -123,6 +126,10 @@ static void nosepRemoveSensitiveSpecifiers(id self) {
     %orig;
     nosepRemoveSensitiveSpecifiers(self);
 }
+- (void)viewDidLoad {
+    %orig;
+    nosepRemoveSensitiveSpecifiers(self);
+}
 %end
 
 %hook PSUIPrefsListController
@@ -131,6 +138,28 @@ static void nosepRemoveSensitiveSpecifiers(id self) {
     return nosepFilterSpecifiers(self, orig);
 }
 - (void)viewWillAppear:(BOOL)animated {
+    %orig;
+    nosepRemoveSensitiveSpecifiers(self);
+}
+- (void)viewDidLoad {
+    %orig;
+    nosepRemoveSensitiveSpecifiers(self);
+}
+%end
+
+// Seen as a distinct class from PSUIPrefsListController on some iOS versions
+// (the root Settings list specifically). Hooked separately in case it doesn't
+// chain up through the PSUIPrefsListController implementation above.
+%hook PSUIPrefsRootController
+- (NSMutableArray *)specifiers {
+    NSMutableArray *orig = %orig;
+    return nosepFilterSpecifiers(self, orig);
+}
+- (void)viewWillAppear:(BOOL)animated {
+    %orig;
+    nosepRemoveSensitiveSpecifiers(self);
+}
+- (void)viewDidLoad {
     %orig;
     nosepRemoveSensitiveSpecifiers(self);
 }

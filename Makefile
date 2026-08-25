@@ -1,6 +1,9 @@
 ARCHS = arm64 arm64e
-TARGET := iphone:clang:16.5:15.0
-THEOS_PACKAGE_SCHEME = rootless
+TARGET := iphone:clang:16.5:12.0
+# THEOS_PACKAGE_SCHEME is intentionally not hardcoded here — see build.sh,
+# which builds both a rootful (classic /Library/MobileSubstrate) package for
+# iOS 12–16-era jailbreaks and a rootless (/var/jb) package for Dopamine /
+# palera1n rootless, since a single .deb can't target both layouts.
 
 include $(THEOS)/makefiles/common.mk
 

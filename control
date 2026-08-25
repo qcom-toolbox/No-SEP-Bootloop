@@ -6,4 +6,4 @@ Description: Removes the Face ID & Passcode / Touch ID & Passcode settings entry
 Maintainer: qcom-toolbox
 Author: qcom-toolbox
 Section: Tweaks
-Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 15.0)
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 12.0)
