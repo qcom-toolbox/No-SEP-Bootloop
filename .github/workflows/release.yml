@@ -1,0 +1,49 @@
+name: Build and Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag (e.g. v1.0.1) — also used as the package Version"
+        required: true
+        default: "v1.0.0"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache Theos
+        uses: actions/cache@v4
+        with:
+          path: ~/theos
+          key: theos-${{ runner.os }}
+
+      - name: Install Theos
+        run: |
+          if [ ! -d "$HOME/theos" ]; then
+            bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+          fi
+
+      - name: Set package version from tag
+        run: |
+          version="${{ inputs.tag }}"
+          version="${version#v}"
+          sed -i '' "s/^Version: .*/Version: ${version}/" control.rootful control.rootless
+
+      - name: Build packages
+        env:
+          THEOS: /Users/runner/theos
+        run: ./build.sh
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.tag }}
+          files: packages/*.deb
+          generate_release_notes: true
