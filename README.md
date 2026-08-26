@@ -1,5 +1,7 @@
 # No SEP Bootloop
 
+[No SEP Bootloop Logo](ICON.png)
+
 A Theos-based iOS tweak (jailbreak) that removes the "Face ID & Passcode" / "Touch ID &
 Passcode" entry from Settings entirely, and blocks any passcode/biometric enrollment screen
 if reached another way (e.g. a `prefs:root=...` deep link). Intended to prevent SEP/AP
