@@ -12,7 +12,7 @@ real limits.
 
 # Disclamer
 By using No SEP Bootloop, you accept full responsibility for whatever happens to your device.
-I am not responsible for : bricked devices, missing recovery partitions, dead Apple  ̶x̶i̶a̶o̶m̶i̶ factoryline  ̶w̶o̶r̶k̶e̶r̶s̶ cowboys, dead pmics, data loss, dead SD cards, dead ram, dead sim cards, dead display ics, dead cpus, any Apple shenanigans, exploding batteries, dead cats, dogs, goldfish, nuclear war, you getting fired because you the tweak somehow tweaked your alarm. Also not responsible for sleepless nights, marriage crises, or general existential dread.
+I am not responsible for : bricked devices, missing recovery partitions, dead Apple  ̶x̶i̶a̶o̶m̶i̶ factoryline  ̶w̶o̶r̶k̶e̶r̶s̶ cowboys, dead pmics, data loss, dead SD cards, dead ram, dead sim cards, dead display ics, dead cpus, any Apple shenanigans, exploding batteries, dead cats, dogs, goldfish, nuclear war, you getting fired because the tweak somehow tweaked your alarm. Also not responsible for sleepless nights, marriage crises, or general existential dread.
 
 ## How it works
 
